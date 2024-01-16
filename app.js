@@ -1,10 +1,13 @@
-//* Get url
 const url = window.location.href;
+const blackList = [
+  /* ADD KEYWORDS */
+];
+const safeUrl = "https://c.tenor.com/7BErTr3oA_kAAAAd/tenor.gif";
 
-const blackList = ["xxx", "porn"];
+const blockSite = (keyword) => {
+  return url.includes(keyword);
+};
 
-for (let i of blackList) {
-  if (url.includes(i)) {
-    window.location.replace("www.google.com");
-  }
+if (blackList.some(blockSite)) {
+  window.location.replace(safeUrl);
 }
